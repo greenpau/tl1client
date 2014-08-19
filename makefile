@@ -10,13 +10,14 @@ all:
 	@make build
 
 build:
-	@echo "Running package build locally ..."
+	@echo "Running build locally ..."
+	@gcc -D_POSIX_C_SOURCE=200112L -O -Wall -W -pthread -pedantic -ansi -std=c99 ${APP_NAME}.c -o ${APP_NAME}
 
 clean:
 	@echo "Running cleanup ... it is empty function"
 
 run:
-	@python3 ${APP_NAME}.py -h
+	@${APP_NAME} -h
 
 backup:
 	@echo "Backup ..."
